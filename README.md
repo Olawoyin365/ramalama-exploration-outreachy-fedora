@@ -138,7 +138,7 @@ Package "python3-3.14.3-1.fc43.x86_64" is already installed.
 Nothing to do.
 ```
 
-**Result:** Python 3.14.3 confirmed pre-installed on Fedora 43.
+**Result:** Python 3.14.3 confirmed pre-installed.
 
 ![Python Installation Check](screenshots/python_install_output.png)
 
