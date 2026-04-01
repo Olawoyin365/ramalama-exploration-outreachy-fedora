@@ -119,7 +119,7 @@ Mastodon:  @Podman_io@fosstodon.org
 
 **Observation:** Warning about shared mount is expected in WSL2 environments and does not prevent RamaLama operation.
 
-![Podman Hello World Test](screenshots/02_podman_hello_world.png)
+![Podman Hello World Test](screenshots/podman_test_output.png)
 
 ### Step 3: Verify Python Installation
 
@@ -139,7 +139,7 @@ Nothing to do.
 
 **Result:** Python 3.14.3 confirmed pre-installed on Fedora 43.
 
-![Python Installation Check](screenshots/03_python_check.png)
+![Python Installation Check](screenshots/python_install_output.png)
 
 ### Step 4: Install RamaLama
 
@@ -176,7 +176,7 @@ Successfully installed MarkupSafe-3.0.3 argcomplete-3.6.3 attrs-26.1.0 jinja2-3.
 
 **Installation Path:** `~/.local/lib/python3.14/site-packages/ramalama`
 
-![RamaLama Installation](screenshots/04_ramalama_install.png)
+![RamaLama Installation](screenshots/ramalama_install_output.png)
 
 ---
 
@@ -198,7 +198,7 @@ ramalama: error: unrecognized arguments: --version
 
 **Observation:** The `--version` flag is not recognized. RamaLama uses subcommand structure.
 
-![RamaLama Version Error](screenshots/05_version_error.png)
+![RamaLama Version Error](screenshots/ramalama_version_error_output.png)
 
 ### Research: Consulting Help Documentation
 
@@ -220,7 +220,7 @@ positional arguments:
 
 **Key Learning:** RamaLama uses `ramalama version` (subcommand) instead of `ramalama --version` (flag).
 
-![RamaLama Help Output](screenshots/06_help_output.png)
+![RamaLama Help Output](screenshots/ramalama_help_output_new.png)
 
 ### Successful Version Check
 
@@ -236,7 +236,7 @@ ramalama version 0.18.0
 
 **Result:** Version 0.18.0 confirmed installed.
 
-![RamaLama Version Success](screenshots/07_version_success.png)
+![RamaLama Version Success](screenshots/ramalama_version_correct_output.png)
 
 ---
 
@@ -266,7 +266,7 @@ Downloading tinyllama
 - Download Speed: 6.21 MB/s
 - Status: Complete, no errors
 
-![Ollama TinyLlama Pull](screenshots/08_ollama_tinyllama_pull.png)
+![Ollama TinyLlama Pull](screenshots/ollama_pull_output.png)
 
 #### Test 1.2: Granite 3.1 Dense 2B via Ollama
 
@@ -291,7 +291,7 @@ Downloading granite3.1-dense
 
 **Analysis:** SSL error occurs after successful download. Model files are intact and usable despite the error message.
 
-![Granite Pull with SSL Error](screenshots/09_granite_pull_ssl_error.png)
+![Granite Pull with SSL Error](screenshots/granite_pull_output.png)
 
 #### Test 1.3: DeepSeek R1 via Ollama
 
@@ -319,7 +319,7 @@ Downloading deepseek-r1
 
 **Analysis:** RamaLama automatic retry mechanism successfully recovered from network interruption.
 
-![DeepSeek Pull with Retry](screenshots/10_deepseek_pull_retry.png)
+![DeepSeek Pull with Retry](screenshots/deepseek_pull_output.png)
 
 **Ollama Transport Summary:**
 - ✅ Reliable downloads across multiple model sizes
@@ -352,7 +352,7 @@ Downloading tinyllama-1.1b-chat-v1.0.Q2_K.gguf
 - Quantization: Q2_K
 - Status: Complete, no errors
 
-![HuggingFace TinyLlama Pull](screenshots/11_hf_tinyllama_pull.png)
+![HuggingFace TinyLlama Pull](screenshots/hf_pull_output.png)
 
 #### Test 2.2: Phi-2 via HuggingFace (Failed)
 
@@ -376,7 +376,7 @@ Error: Failed to pull model: 'No metadata found
 
 **Decision:** Excluded from testing due to metadata resolution failure.
 
-![Phi-2 Pull Failure](screenshots/12_phi2_pull_failure.png)
+![Phi-2 Pull Failure](screenshots/phi2_pull_error_output.png)
 
 **HuggingFace Transport Summary:**
 - ✅ Reliable for fully-qualified repository paths
@@ -408,7 +408,7 @@ Writing manifest to image destination
 
 **Result:** Image pull successful.
 
-![Quay.io Image Pull Success](screenshots/13_quay_image_pull.png)
+![Quay.io Image Pull Success](screenshots/container_podman_docker_pull_outcome.png)
 
 #### Test 3.2: Attempt Execution
 
@@ -425,7 +425,7 @@ Error: Failed to serve model ramalama, for ramalama run command
 
 **Root Cause:** Container image lacks embedded model files. Requires volume mount configuration.
 
-![Quay.io Run Error](screenshots/14_quay_run_error.png)
+![Quay.io Run Error](screenshots/cont_trans_doc_pod__run_output_error.png)
 
 #### Test 3.3: Docker Installation for Troubleshooting
 
@@ -453,7 +453,7 @@ Complete!
 - containerd 2.1.6
 - Total disk usage: 375 MB
 
-![Docker Installation](screenshots/15_docker_install.png)
+![Docker Installation](screenshots/docker_download_output.png)
 
 #### Test 3.4: Retry After Docker Installation
 
@@ -492,7 +492,7 @@ Installing collected packages: urllib3, tqdm, setuptools, packaging, idna, filel
 Successfully installed certifi-2026.2.25 charset_normalizer-3.4.6 filelock-3.25.2 idna-3.11 modelscope-1.35.3 packaging-26.0 requests-2.33.1 setuptools-82.0.1 tqdm-4.67.3 urllib3-2.6.3
 ```
 
-![ModelScope Dependencies Install](screenshots/16_modelscope_install.png)
+![ModelScope Dependencies Install](screenshots/model_scope_install_output.png)
 
 #### Test 4.2: Attempt Model Pull
 
@@ -529,14 +529,14 @@ Downloading [qwen1_5-0_5b-chat-q4_0.gguf]: 479MB [37:45, 222kB/s]
 
 **Decision:** Manual cancellation after 37 minutes. Impractical for bandwidth-constrained environments.
 
-![ModelScope Pull Attempt](screenshots/17_modelscope_pull.png)
+![ModelScope Pull Attempt](screenshots/model_scope_delayed_output.png)
 
 **ModelScope Transport Summary:**
-- ❌ Extremely slow download speeds (200-600 KB/s)
-- ❌ Forces download of all quantization variants
-- ❌ High total bandwidth consumption
-- ❌ Not suitable for global contributors with limited connectivity
-- Recommendation: Avoid for this project
+-  Extremely slow download speeds (200-600 KB/s)
+-  Forces download of all quantization variants
+-  High total bandwidth consumption
+-  Not suitable for global contributors with limited connectivity
+- Recommendation: To be avoided for this project
 
 ---
 
@@ -553,7 +553,7 @@ ramalama run ollama://tinyllama
 
 **Output:**
 ```
-e7b36328dc30f2a189f6742d7aee0e1b611b0a15c3d94b1eea660185e642bd14
+4180da7e53557b82806eb9d8f79272f6ce87bac938da3e68b70d2d7581f0fb3e
 🦭 >
 ```
 
@@ -562,7 +562,7 @@ e7b36328dc30f2a189f6742d7aee0e1b611b0a15c3d94b1eea660185e642bd14
 - Startup Time: 5-7 seconds
 - Prompt Interface: Active and responsive
 
-![Ollama TinyLlama Execution](screenshots/18_ollama_tinyllama_run.png)
+![Ollama TinyLlama Execution](screenshots/olama_run_output.png)
 
 ### Execution 2: HuggingFace TinyLlama (Success)
 
@@ -613,7 +613,7 @@ llama_kv_cache:        CPU KV buffer size = 10240.00 MiB
 
 **Timeout Behavior:** RamaLama enforces 180-second health check timeout. Model initialization exceeded this limit due to insufficient memory.
 
-![Granite Timeout Error](screenshots/27_granite_timeout.png)
+![Granite Timeout Error](screenshots/granite_run_failed_output.png)
 
 ---
 
@@ -673,7 +673,7 @@ The Four Foundation of the Fedora Project are:
 These four foundations are the basis for the Fedora Project and are what make the Fedora Project unique and highly regarded in the community. The Fedora Project is built on these foundations to ensure that the operating system is well-suited for its purpose and meets the needs of its users.
 ```
 
-![Ollama Four Foundations Response](screenshots/19_ollama_four_foundations.png)
+![Ollama Four Foundations Response](screenshots/ollama_run_output_fp.png)
 
 **Evaluation:**
 
@@ -700,7 +700,7 @@ The Four Foundation is a group of values that define the Fedora Project, which i
 The Four Foundation values allow the Fedora Project to have a strong community that contributes to the success of the Fedora operating system. They ensure that the community's values are reflected in the operating system, allowing developers and contributors to work with a community that values open-source and contributor-driven development. This allows Fedora to create a strong and successful community, contributing to the success of the operating system.
 ```
 
-![HuggingFace Four Foundations Response](screenshots/20_hf_four_foundations.png)
+![HuggingFace Four Foundations Response](screenshots/hf_run_output_fp.png)
 
 **Evaluation:**
 
@@ -772,7 +772,7 @@ Here are the packaging guidelines for Python libraries on Fedora RPMs:
     c. If the package is already installed, Fedora will prompt you to update the package. If you want to update, type `yum update <package_name>`.
 ```
 
-![Ollama Python Packaging Response](screenshots/21_ollama_python_guidelines.png)
+![Ollama Python Packaging Response](screenshots/ollama_run_output_sp.png)
 
 **Evaluation:**
 
@@ -817,7 +817,7 @@ Here are some specific guidelines for Python libraries:
 [... further repetition ...]
 ```
 
-![HuggingFace Python Packaging Response](screenshots/22_hf_python_guidelines.png)
+![HuggingFace Python Packaging Response](screenshots/hf_output_sp.png)
 
 **Evaluation:**
 
@@ -911,7 +911,7 @@ commands:
       - HEROKU_API_KEY: "<<|user|>:"
 ```
 
-![Ollama Spec File Response](screenshots/23_ollama_spec_file.png)
+![Ollama Spec File Response](screenshots/ollama_run_output_tp.png)
 
 **Evaluation:**
 
@@ -967,7 +967,7 @@ apps:
 6. You're now ready to run your app by running the executable file. For example, `python my-app.py`.
 ```
 
-![HuggingFace Spec File Response](screenshots/24_hf_spec_file.png)
+![HuggingFace Spec File Response](screenshots/hf_run_output_tp.png)
 
 **Evaluation:**
 
@@ -1067,7 +1067,7 @@ When a package is installed, the %config section is executed, which will read th
 In RPM packaging, %config is used to configure the installation of a package. It is a powerful feature that allows package developers to customize the installation process for their package. By using %config, package developers can create customized packages with different configurations and settings.
 ```
 
-![Ollama Config Explanation](screenshots/25_ollama_config.png)
+![Ollama Config Explanation](screenshots/ollama_run_output_fifth_p.png)
 
 **Evaluation:**
 
@@ -1097,7 +1097,7 @@ In RPM (Recipe Packaging Format) packaging, the `%config` variable is used to sp
 This spec file will pass the value of the variable `varname` to the `rpm` command during the installation process. This variable will be set to the value of the variable `config_var` in the installed package.
 ```
 
-![HuggingFace Config Explanation](screenshots/26_hf_config.png)
+![HuggingFace Config Explanation](screenshots/hf_run-output_fourth_p.png)
 
 **Evaluation:**
 
@@ -1204,7 +1204,7 @@ ramalama info
 }
 ```
 
-![RamaLama Info Output](screenshots/28_ramalama_info.png)
+![RamaLama Info Output](screenshots/ramalama_info_output (2).png)
 
 **Key Configuration Details:**
 
@@ -1313,9 +1313,9 @@ Success varied by transport, but the abstraction layer itself works as designed.
 **1. Model Execution Reliability (3/5)**
 
 Platform-dependent success:
-- ✅ 1B parameter models: Successful
-- ❌ 2B parameter models: Memory timeout
-- ❌ 8B parameter models: Memory timeout
+-  1B parameter models: Successful
+-  2B parameter models: Memory timeout
+-  8B parameter models: Memory timeout
 
 Hardware constraints still matter. Not boring when models fail silently after 180 seconds.
 
@@ -1356,8 +1356,8 @@ The outputs are unreliable without enhancement. Every response requires verifica
 **The Missing Piece: RAG**
 
 This exploration validates the Outreachy project architecture:
-1. **RamaLama handles deployment** (boring infrastructure) ✅
-2. **RAG will handle knowledge** (boring accuracy) ⬅️ Next phase
+1. **RamaLama handles deployment** (boring infrastructure)
+2. **RAG will handle knowledge** (boring accuracy)  Next phase
 
 When RAG injects verified Fedora documentation into the context, the model outputs should become boring in the desired way: consistent, accurate, predictable. The exploration confirms that RamaLama provides the right foundation; it needs the knowledge layer.
 
@@ -1483,9 +1483,9 @@ All ground truth comparisons verified against official documentation:
 
 | Model | Parameters | KV Cache Required | Available RAM | Result |
 |-------|------------|-------------------|---------------|--------|
-| TinyLlama | 1.1B | ~600 MB | 7.2 GB | ✅ Success |
-| Granite Dense | 2.5B | 10.2 GB | 7.2 GB | ❌ Timeout |
-| DeepSeek R1 | 8.2B | 18.4 GB | 7.2 GB | ❌ Timeout |
+| TinyLlama | 1.1B | ~600 MB | 7.2 GB |  Success |
+| Granite Dense | 2.5B | 10.2 GB | 7.2 GB |  Timeout |
+| DeepSeek R1 | 8.2B | 18.4 GB | 7.2 GB |  Timeout |
 
 **Recommendations for Similar Environments:**
 - Limit testing to 1B parameter models
@@ -1538,18 +1538,35 @@ ramalama-exploration-outreachy-fedora/
 This exploration systematically evaluated RamaLama on Fedora Linux across four transport mechanisms, documenting installation, configuration, model execution, and output quality. The findings validate RamaLama's infrastructure abstraction while confirming the necessity of RAG enhancement for production deployment.
 
 **Key Achievements:**
-- ✅ Complete Fedora 43 installation and configuration
-- ✅ Four transport protocols tested (Ollama, HuggingFace, OCI, ModelScope)
-- ✅ Two models successfully executed with systematic prompt testing
-- ✅ 28 screenshots documenting every step
-- ✅ Ground truth verification against official Fedora documentation
-- ✅ Comprehensive evaluation framework applied to all outputs
+-  Complete Fedora 43 installation and configuration
+-  Four transport protocols tested (Ollama, HuggingFace, OCI, ModelScope)
+-  Two models successfully executed with systematic prompt testing
+-  28 screenshots documenting every step
+-  Ground truth verification against official Fedora documentation
+-  Comprehensive evaluation framework applied to all outputs
 
 **Project Validation:**
 The exploration confirms that RamaLama provides robust model deployment infrastructure. The 100% hallucination rate on technical queries validates the project's next phase: implementing RAG with Fedora documentation to transform unreliable outputs into trustworthy packaging assistance.
 
-RamaLama makes infrastructure boring. The Outreachy project will make the outputs boring too.
+RamaLama makes infrastructure boring. The Fedora Project - **Develop a SLM/LLM using Ramalama RAG based off Fedora RPM Packaging Guidelines** will make the outputs boring too but in a positive way.
 
 ---
 
-**End of Document**
+### AI Usage
+
+I used Claude (by Anthropic) as a support tool throughout this task, primarily to guide my exploration and debugging process.
+My approach was iterative and structured. I broke the task into smaller steps such as installation, command execution, output validation, and experimentation with different CLI options. After completing each step, I validated the output before proceeding. This made it easier to identify issues early, understand errors, and refine my approach incrementally.
+
+**Calude was particularly useful in:**
+- Interpreting CLI errors and logs
+- Understanding command options from documentation
+- Suggesting alternative approaches when commands failed
+- Copilot in crafting this README
+
+Importantly, all commands were executed, tested, and verified by me. The AI served as a guide to accelerate understanding.
+
+This workflow helped me maintain a clear structure, document my thought process effectively, and build a deeper understanding of how Docling behaves across different configurations.
+
+---
+
+*This work is submitted as part of the Outreachy May 2026 internship application for the Fedora Project.*
