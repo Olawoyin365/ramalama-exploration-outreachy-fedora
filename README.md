@@ -1,8 +1,9 @@
 # RamaLama Exploration on Fedora Linux
 
 **Outreachy May 2026 Contribution**  
-**Task:** Learn how RamaLama makes working with AI boring (in a good way)  
+
 **Contributor:** Ibrahim Olawoyin
+**Task:** Learn how RamaLama makes working with AI boring (in a good way)
 **Program:** Outreachy Round 32 Internship (May 2026 Cohort)  
 **Project:** Develop a SLM/LLM using RamaLama RAG based off Fedora RPM Packaging Guidelines    
 **Task:** [[Outreachy 2026] RamaLama: learn how RamaLama makes working with AI boring #124](https://forge.fedoraproject.org/commops/interns/issues/124)
@@ -13,7 +14,7 @@
 
 ## Contribution Summary
 
-This documents a comprehensively my exploration of RamaLama on Fedora Linux, evaluating multiple model transport mechanisms and systematically analyzing model output quality against official Fedora documentation. The exploration tested four transport protocols (Ollama, HuggingFace, OCI Container, and ModelScope), executed two functional models with four distinct prompts, and documented complete installation, configuration, and troubleshooting processes.
+This documents comprehensively my exploration of RamaLama on Fedora Linux, evaluating multiple model transport mechanisms and systematically analyzing model output quality against official Fedora documentation. The exploration tested four transport protocols (Ollama, HuggingFace, OCI Container, and ModelScope), executed two functional models with four distinct prompts, and documented complete installation, configuration, and troubleshooting processes.
 
 **Key Findings:**
 - Ollama and HuggingFace transports successfully deployed models
